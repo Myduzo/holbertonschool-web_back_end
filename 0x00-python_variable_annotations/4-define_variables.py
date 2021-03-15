@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""4. Define variables"""
+"""4. Define variables
+Define and annotate the following variables
+ with the specified values
+"""
 
 
 a: int = 1
 pi: float = 3.14
 i_understand_annotations: bool = True
-school:str = "Holberton"
+school: str = "Holberton"
