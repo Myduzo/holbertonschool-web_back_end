@@ -29,6 +29,5 @@ class MRUCache(BaseCaching):
         if key in self.cache_data:
             self.queue.remove(key)
             self.queue[:0] = key
-            print(self.queue)
             return self.cache_data[key]
         return None
