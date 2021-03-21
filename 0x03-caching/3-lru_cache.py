@@ -13,7 +13,7 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """PUT method with Least Recently Used queue"""
-        if key or item:
+        if key and item:
             if key in self.cache_data:
                 self.cache_data[key] = item
 
