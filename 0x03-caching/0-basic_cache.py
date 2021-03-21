@@ -8,7 +8,7 @@ class BasicCache(BaseCaching):
     """BasicCache class"""
     def put(self, key, item):
         """assign key: item to the dict"""
-        if key or item:
+        if key and item:
             self.cache_data[key] = item
 
     def get(self, key):
