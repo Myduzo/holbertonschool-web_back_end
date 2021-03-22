@@ -16,8 +16,6 @@ class MRUCache(BaseCaching):
         if key and item:
             if key in self.cache_data:
                 self.cache_data[key] = item
-                self.queue.remove(key)
-                self.queue[:0] = key
             else:
                 if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                     print('DISCARD: ' + self.queue[0])
@@ -28,7 +26,7 @@ class MRUCache(BaseCaching):
 
     def get(self, key):
         """GET method"""
-        if key in self.cache_data:
+        if key and key in self.cache_data:
             self.queue.remove(key)
             self.queue[:0] = key
             return self.cache_data[key]
