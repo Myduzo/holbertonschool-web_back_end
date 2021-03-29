@@ -30,7 +30,7 @@ class RedactingFormatter(logging.Formatter):
 
 
 def filter_datum(fields: List[str], redaction: str, message: str,
-                 separator: str):
+                 separator: str) -> str:
     """Regex-ing"""
     for field in fields:
         message = re.sub(f'{field}=.*?{separator}',
