@@ -28,13 +28,15 @@ class RedactingFormatter(logging.Formatter):
                             super(RedactingFormatter, self).format(record),
                             self.SEPARATOR)
 
+
 def filter_datum(fields: List[str], redaction: str, message: str,
-                    separator: str):
+                 separator: str):
     """Regex-ing"""
     for field in fields:
         message = re.sub(field + "=.*?" + separator,
-                            field + "=" + redaction + separator, message)
+                         field + "=" + redaction + separator, message)
     return message
+
 
 def get_logger() -> logging.Logger:
     """Create logger"""
@@ -51,6 +53,7 @@ def get_logger() -> logging.Logger:
 
     return logger
 
+
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """Connect to secure database"""
     cnn = mysql.connector.connection.MySQLConnection(
@@ -60,5 +63,6 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=os.getenv('PERSONAL_DATA_DB_NAME'))
     return cnn
 
+
 def main():
-    
+    pass
