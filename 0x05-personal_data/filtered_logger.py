@@ -81,9 +81,10 @@ def main():
         data += "ssn={}; password={}; ip={}; ".format(x[3], x[4], x[5])
         data += "last_login={}; user_agent={};".format(x[6], x[7])
         logger.info(data)
-        
+
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()
