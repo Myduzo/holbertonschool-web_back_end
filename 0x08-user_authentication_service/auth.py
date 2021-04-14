@@ -17,6 +17,7 @@ def _hash_password(password: str) -> str:
     """
     return hashpw(password.encode('utf-8'), gensalt())
 
+
 class Auth:
     """Auth class to interact with the authentication database.
     """
@@ -38,7 +39,6 @@ class Auth:
 
         else:
             raise ValueError("User {} already exists.".format(email))
-
 
     def valid_login(self, email: str, password: str) -> bool:
         """ Instance method that returns True if the pwd matches,
