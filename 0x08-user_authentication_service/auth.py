@@ -68,4 +68,4 @@ def _generate_uuid() -> str:
     """ Private method that returns
     a string representation of a new UUID.
     """
-    return uuid4()
+    return str(uuid4())
