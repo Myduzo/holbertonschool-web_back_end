@@ -51,7 +51,7 @@ class Auth:
             return False
 
     def create_session(self, email: str) -> str:
-        """ Instance method that returns the sessionID
+        """ Instance method that returns the session_id
         as a string.
         """
         try:
@@ -59,9 +59,9 @@ class Auth:
         except NoResultFound:
             return None
 
-        sessionId = _generate_uuid()
-        self._db.update_user(user.id, sessionId=sessionId)
-        return sessionId
+        session_id = _generate_uuid()
+        self._db.update_user(user.id, session_id=session_id)
+        return session_id
 
 
 def _generate_uuid() -> str:
