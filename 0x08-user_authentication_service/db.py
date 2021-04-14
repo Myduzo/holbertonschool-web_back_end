@@ -13,7 +13,7 @@ from user import Base, User
 
 
 class DB:
-    """ Create user
+    """ DB class for ORM (Object Relational Mapping)
     """
     def __init__(self):
         """ Assigning variables
@@ -31,7 +31,7 @@ class DB:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
-    
+
     def add_user(self, email: str, hashed_password: str) -> User:
         """ Instance method that saves the user to the database
         """
