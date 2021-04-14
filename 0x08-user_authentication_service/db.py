@@ -57,10 +57,11 @@ class DB:
         """
         """
         user = self.find_user_by(id=user_id)
-        if kwargs is None:
-            raise ValueError
 
         for k, v in kwargs.items():
-            setattr(user, k, v)
+            if k is None:
+                raise ValueError
+            else:
+                setattr(user, k, v)
 
         self._session.commit()
