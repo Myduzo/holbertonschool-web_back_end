@@ -14,8 +14,9 @@ from user import Base, User
 class DB:
     """ DB class for ORM (Object Relational Mapping)
     """
-    def __init__(self):
-        """ Assigning variables
+
+    def __init__(self) -> None:
+        """Initialize a new DB instance
         """
         self._engine = create_engine("sqlite:///a.db", echo=True)
         Base.metadata.drop_all(self._engine)
@@ -23,8 +24,8 @@ class DB:
         self.__session = None
 
     @property
-    def _session(self):
-        """ Private property
+    def _session(self) -> Session:
+        """Memoized session object
         """
         if self.__session is None:
             DBSession = sessionmaker(bind=self._engine)
