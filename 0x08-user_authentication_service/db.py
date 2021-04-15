@@ -54,7 +54,7 @@ class DB:
         return user
 
     def update_user(self, user_id: int, **kwargs) -> None:
-        """
+        """ Instance method that updates the user
         """
         user = self.find_user_by(id=user_id)
 
