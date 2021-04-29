@@ -13,4 +13,3 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 INSERT INTO items (name) VALUES ("apple"), ("pineapple"), ("pear");
-
