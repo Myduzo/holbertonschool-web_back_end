@@ -1,17 +1,23 @@
 -- SQL script that creates a stored procedure AddBonus that adds a new correction for a student.
 DELIMITER //
-CREATE PRECEDES AddBonus(
+CREATE PROCEDURE AddBonus(
         IN user_id INT,
         In project_name VARCHAR(255),
-        IN score float)
+        IN score INT)
 BEGIN
-        INSERT INTO projects (name)
+	IF EXISTS(SELECT * FROM projects 
+		  WHERE name = project_name)
+	THEN
+		SET @project_id = (SELECT id FROM projects WHERE name = project_name);
 
-        SELECT project_name FROM projects
-        WHERE project_name NOT IN (SELECT name FROM projects);
+	ELSE
+		INSERT INTO projects (name)
+		VALUES (project_name);
 
-        SET @project_id = LAST_INSERT_ID();
+        	SET @project_id = LAST_INSERT_ID();
+	END IF;
+
         INSERT INTO corrections (user_id, project_id, score)
-        VALUES (user_id, @project_id, score)
+	VALUES (user_id, @project_id, score);
 END //
 DELIMITER ;
