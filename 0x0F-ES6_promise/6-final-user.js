@@ -5,10 +5,10 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
   return [{
     status: 'fulfilled',
     value: await signUpUser(firstName, lastName)
-      .then((data) => data),
+      .then((data) => data)
   }, {
     status: 'rejected',
     value: await uploadPhoto(fileName)
-      .catch((err) => err),
+      .catch((err) => err)
   }];
 }
