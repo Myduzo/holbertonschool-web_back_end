@@ -1,4 +1,4 @@
 function displayMessage(STDOUT) {
-  console.log(`${STDOUT}\n`);
+  console.log(STDOUT);
 }
 module.exports = displayMessage;
