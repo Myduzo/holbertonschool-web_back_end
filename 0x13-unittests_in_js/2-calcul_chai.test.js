@@ -20,6 +20,7 @@ describe('SUM', () => {
 describe('SUBTRACT', () => {
   it('checks equality SUBTRACT type', () => {
     expect(calculateNumber('SUBTRACT', 5.3, 2.8)).to.equal(2);
+    expect(calculateNumber('SUBTRACT', 1.4, 6.7)).to.equal(-6);
     expect(calculateNumber('SUBTRACT', 7, -6.1)).to.equal(13);
     expect(calculateNumber('SUBTRACT', 0, 3.9)).to.equal(-4);
     expect(calculateNumber('SUBTRACT', -2, 0)).to.equal(-2);
@@ -42,7 +43,7 @@ describe('DIVIDE', () => {
   });
 
   it ('Error', () => {
-    expect(calculateNumber('DIVIDE', 0, 3.3)).to.equal('Error');
+    expect(calculateNumber('DIVIDE', 3.3, 0)).to.equal('Error');
     expect(calculateNumber('DIVIDE', 7.9, 0)).to.equal('Error');
     expect(calculateNumber('DIVIDE', 0, 0)).to.equal('Error');
   });

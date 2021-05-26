@@ -20,6 +20,7 @@ describe('SUM', () => {
 describe('SUBTRACT', () => {
   it('checks equality SUBTRACT type', () => {
     assert.strictEqual(calculateNumber('SUBTRACT', 5.3, 2.8), 2);
+    assert.strictEqual(calculateNumber('SUBTRACT', 1.4, 6.7), -6);
     assert.strictEqual(calculateNumber('SUBTRACT', 7, -6.1), 13);
     assert.strictEqual(calculateNumber('SUBTRACT', 0, 3.9), -4);
     assert.strictEqual(calculateNumber('SUBTRACT', -2, 0), -2);
@@ -42,9 +43,8 @@ describe('DIVIDE', () => {
   });
 
   it ('Error', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 0, 3.3), 'Error');
+    assert.strictEqual(calculateNumber('DIVIDE', 3.3, 0), 'Error');
     assert.strictEqual(calculateNumber('DIVIDE', 7.9, 0), 'Error');
-    assert.strictEqual(calculateNumber('DIVIDE', 0, 0), 'Error');
   });
 
   it ('TypeError', () => {
