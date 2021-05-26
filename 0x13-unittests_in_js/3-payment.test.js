@@ -13,5 +13,8 @@ describe('endPaymentRequestToApi', () => {
     expect(spy.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
     expect(spyCon.calledWithExactly('The total is: 120')).to.be.true;
     expect(utils.calculateNumber('SUM', 100, 20)).to.equal(reqApi);
+
+    spy.restore();
+    spyCon.restore();
   });
 });
